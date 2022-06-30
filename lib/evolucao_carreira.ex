@@ -13,6 +13,11 @@ defmodule EvolucaoCarreira do
     {:reply, state, state}
   end
 
+  def handle_cast({:upgrade, idade, aumento}, state) do
+    {_, salario} = state
+    {:noreply, {idade, salario + aumento}}
+  end
+
   # client
 
   def buscar_pessoa(nome), do: GenServer.call(nome, :get)
