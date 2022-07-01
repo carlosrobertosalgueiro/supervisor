@@ -21,4 +21,5 @@ defmodule EvolucaoCarreira do
   # client
 
   def buscar_pessoa(nome), do: GenServer.call(nome, :get)
+  def promocao(nome, idade, salario), do: GenServer.cast(nome, {:upgrade, idade, salario})
 end
