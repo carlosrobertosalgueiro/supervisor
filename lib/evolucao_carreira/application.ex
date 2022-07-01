@@ -7,7 +7,14 @@ defmodule EvolucaoCarreira.Application do
 
   @impl true
   def start(_type, _args) do
+    IO.inspect("Iniciando salario dos profissionais")
+
     children = [
+      # Varios starts
+      %{id: :gustavo, start: {EvolucaoCarreira, :start_link, [{:gustavo, 18, 1000}]}},
+      %{id: :bruce, start: {EvolucaoCarreira, :start_link, [{:bruce, 0, 0}]}}
+      # Um start
+      # {EvolucaoCarreira, {:carlos, 0, 0}}
       # Starts a worker by calling: EvolucaoCarreira.Worker.start_link(arg)
       # {EvolucaoCarreira.Worker, arg}
     ]
